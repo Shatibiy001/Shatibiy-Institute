@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>Shatibiy Institute · Qur’an & Islamic Studies | FAQ + WhatsApp + popup 50s</title>
+  <!-- Font Awesome 6 + Google Font -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    /* ----- RESET & VARIABLES ----- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    :root {
+      --primary: #0b3b2f;
+      --primary-deep: #052b21;
+      --primary-soft: #1b5e4a;
+      --accent: #c79a4b;
+      --accent-glow: #dbb168;
+      --accent-soft: #efe1cc;
+      --bg-light: #f8f5f0;
+      --white: #ffffff;
+      --text-dark: #1a2e28;
+      --text-soft: #3b5249;
+      --shadow-sm: 0 10px 30px -10px rgba(0, 30, 20, 0.1);
+      --shadow-hover: 0 30px 40px -15px rgba(7, 54, 36, 0.25);
+      --shadow-card: 0 20px 30px -12px rgba(0, 20, 10, 0.12);
+      --transition: all 0.3s cubic-bezier(0.2, 0.9, 0.3, 1.1);
+      --border-radius-card: 36px;
+    }
+    body {
+      font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+      background: var(--bg-light);
+      color: var(--text-dark);
+      line-height: 1.5;
+      scroll-behavior: smooth;
+      overflow-x: hidden;
+    }
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem;
+    }
+    h2 {
+      font-size: clamp(2rem, 5vw, 2.8rem);
+      margin-bottom: 1rem;
+      color: var(--primary-deep);
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      border-bottom: 3px solid var(--accent-soft);
+      padding-bottom: 0.75rem;
+    }
+    h2 i {
+      color: var(--accent);
+      font-size: 2.4rem;
+      filter: drop-shadow(0 4px 4px rgba(199,154,75,0.3));
+    }
+
+    /* ----- NAVBAR (glass) ----- */
+    .navbar {
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 8px 25px -8px rgba(0,30,15,0.15);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      border-bottom: 1px solid rgba(199,154,75,0.2);
+    }
+    .nav-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0.7rem 1.8rem;
+    }
+    .logo-area {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+    .logo-img {
+      width: 54px;
+      height: 54px;
+      background: linear-gradient(145deg, var(--primary), #07382b);
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 1.3rem;
+      color: var(--accent-soft);
+      box-shadow: 0 8px 16px -6px rgba(7,54,36,0.4);
+    }
+    .logo-text {
+      font-weight: 800;
+      font-size: clamp(1.1rem, 3vw, 1.5rem);
+      background: linear-gradient(135deg, var(--primary-deep) 20%, var(--primary-soft) 80%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .logo-text small {
+      font-size: 0.7rem;
+      font-weight: 500;
+      color: var(--text-soft);
+      display: block;
+      -webkit-text-fill-color: var(--text-soft);
+      background: none;
+    }
+    .nav-links {
+      display: flex;
+      gap: 0.3rem;
+      list-style: none;
+    }
+    .nav-links li a {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.7rem 1.2rem;
+      border-radius: 50px;
+      font-weight: 600;
+      color: var(--text-dark);
+      text-decoration: none;
+      transition: var(--transition);
+      border: 1px solid transparent;
+    }
+    .nav-links li a i { color: var(--primary); }
+    .nav-links li a:hover {
+      background: var(--white);
+      border-color: var(--accent-soft);
+      box-shadow: 0 8px 18px -12px var(--primary);
+      transform: translateY(-2px);
+    }
+    .nav-links li.active a {
+      background: var(--primary);
+      color: white;
+    }
+    .nav-links li.active a i { color: var(--accent-soft); }
+    .menu-toggle {
+      display: none;
+      background: transparent;
+      border: 2px solid var(--primary);
+      color: var(--primary);
+      font-size: 1.5rem;
+      padding: 0.4rem 1.2rem;
+      border-radius: 40px;
+      cursor: pointer;
+      font-weight: 600;
+    }
+    .menu-toggle:hover {
+      background: var(--primary);
+      color: white;
+    }
+
+    /* ----- HERO SECTION (HOME) ----- */
+    .hero {
+      background: linear-gradient(105deg, #f0ebe2 0%, #fcf9f4 100%);
+      border-radius: var(--border-radius-card);
+      padding: 3rem 2.5rem;
+      margin-bottom: 2.5rem;
+      box-shadow: var(--shadow-card);
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 2rem;
+      border: 1px solid rgba(199,154,75,0.15);
+    }
+    .hero-content {
+      flex: 2 1 300px;
+    }
+    .hero-content h1 {
+      font-size: clamp(2.4rem, 6vw, 3.8rem);
+      font-weight: 800;
+      line-height: 1.1;
+      color: var(--primary-deep);
+    }
+    .hero-content .highlight {
+      color: var(--accent);
+      background: rgba(199,154,75,0.1);
+      display: inline-block;
+      padding: 0.2rem 1.2rem;
+      border-radius: 60px;
+      font-size: 1.2rem;
+      margin: 1rem 0;
+    }
+    .hero-badge {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .hero-badge span {
+      background: var(--white);
+      padding: 0.5rem 1.5rem;
+      border-radius: 40px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.02);
+      font-weight: 600;
+    }
+    .hero-image {
+      flex: 1 1 200px;
+      background: var(--primary);
+      border-radius: 40px;
+      padding: 1.5rem;
+      color: white;
+      text-align: center;
+      font-size: 3rem;
+    }
+
+    /* ----- SECTION CARDS ----- */
+    .section-card {
+      background: var(--white);
+      border-radius: var(--border-radius-card);
+      padding: 2.5rem 2.2rem;
+      box-shadow: var(--shadow-card);
+      margin-bottom: 2.8rem;
+      border: 1px solid rgba(199,154,75,0.1);
+      transition: var(--transition);
+    }
+    .section-card:hover {
+      box-shadow: var(--shadow-hover);
+      transform: translateY(-6px);
+    }
+
+    /* ABOUT specific containers */
+    .problem-solve, .different-box {
+      background: #f3ede5;
+      border-radius: 28px;
+      padding: 1.8rem;
+      margin: 1.5rem 0;
+      border-left: 8px solid var(--accent);
+    }
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px,1fr));
+      gap: 2rem;
+    }
+
+    /* tutor PDF style */
+    .pdf-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.8rem;
+      background: #b3412e;
+      color: white;
+      padding: 0.8rem 1.8rem;
+      border-radius: 60px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: 0.3s;
+      box-shadow: 0 8px 16px -10px #9a2f1f;
+    }
+    .pdf-badge:hover {
+      background: #942d1c;
+      transform: scale(1.02) translateY(-3px);
+      box-shadow: 0 15px 20px -10px #642013;
+    }
+    .pdf-badge i {
+      font-size: 1.5rem;
+    }
+
+    /* student images grid */
+    .grid-student {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 1.2rem;
+      margin: 2rem 0;
+    }
+    .student-card {
+      background: var(--bg-light);
+      border-radius: 24px;
+      padding: 1rem 0.5rem;
+      text-align: center;
+      transition: 0.2s;
+    }
+    .student-img {
+      width: 100%;
+      aspect-ratio: 1/1;
+      border-radius: 50%;
+      border: 4px solid var(--accent-soft);
+      transition: 0.2s;
+      object-fit: cover;
+    }
+    .student-card:hover .student-img {
+      transform: scale(0.95);
+      border-color: var(--accent);
+    }
+
+    /* testimonials */
+    .testimonial-card {
+      background: var(--bg-light);
+      border-radius: 28px;
+      padding: 1.8rem;
+      transition: var(--transition);
+    }
+    .testimonial-card:hover {
+      background: white;
+      transform: translateY(-8px);
+      box-shadow: 0 20px 25px -12px #ac926e;
+    }
+    .stars { color: #eab308; }
+
+    /* contact */
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      background: #f3efe8;
+      padding: 0.9rem 1.8rem;
+      border-radius: 60px;
+      transition: 0.2s;
+    }
+    .contact-item:hover {
+      background: var(--primary);
+      color: white;
+      transform: translateX(8px);
+    }
+    .input-field {
+      padding: 1rem 1.5rem;
+      border-radius: 60px;
+      border: 1px solid #e2d6c5;
+      width: 100%;
+      margin-bottom: 1rem;
+    }
+    .submit-btn {
+      background: var(--primary);
+      color: white;
+      padding: 1rem 2rem;
+      border: none;
+      border-radius: 60px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    /* ----- FAQ SECTION (new) ----- */
+    .faq-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    .faq-item {
+      background: var(--bg-light);
+      border-radius: 28px;
+      padding: 2rem 1.8rem;
+      box-shadow: 0 8px 18px -12px rgba(0,0,0,0.08);
+      transition: var(--transition);
+      border: 1px solid rgba(199,154,75,0.1);
+      position: relative;
+      overflow: hidden;
+    }
+    .faq-item:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-hover);
+      background: white;
+    }
+    .faq-item::before {
+      content: "?";
+      position: absolute;
+      right: 10px;
+      bottom: 10px;
+      font-size: 5rem;
+      font-weight: 800;
+      color: var(--accent-soft);
+      opacity: 0.2;
+      line-height: 1;
+      pointer-events: none;
+    }
+    .faq-question {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      margin-bottom: 1.2rem;
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--primary-deep);
+    }
+    .faq-question i {
+      color: var(--accent);
+      font-size: 2rem;
+      background: rgba(199,154,75,0.1);
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .faq-answer {
+      color: var(--text-soft);
+      padding-left: 0.8rem;
+      border-left: 3px solid var(--accent-soft);
+    }
+    .faq-answer ul {
+      margin-top: 0.5rem;
+      list-style: none;
+    }
+    .faq-answer li {
+      margin-bottom: 0.4rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .faq-answer li i {
+      color: var(--primary);
+      font-size: 0.9rem;
+    }
+
+    /* footer */
+    footer {
+      background: var(--primary-deep);
+      color: #ddd;
+      padding: 2.5rem;
+      border-radius: 50px 50px 0 0;
+    }
+
+    /* ----- WHATSAPP FLOATING BUTTON ----- */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 30px;
+      right: 20px;
+      background: #25d366;
+      color: white;
+      width: 65px;
+      height: 65px;
+      border-radius: 50%;
+      text-align: center;
+      font-size: 35px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s;
+      text-decoration: none;
+      border: 3px solid white;
+    }
+    .whatsapp-float:hover {
+      background: #20b859;
+      transform: scale(1.1) translateY(-5px);
+      box-shadow: 0 15px 30px rgba(37, 211, 102, 0.4);
+    }
+
+    /* ----- POPUP MESSAGE (inspiring quotes) ----- */
+    .popup-quote {
+      position: fixed;
+      bottom: 110px;
+      right: 20px;
+      max-width: 340px;
+      background: var(--primary-deep);
+      color: white;
+      padding: 1.2rem 1.8rem;
+      border-radius: 40px 40px 0 40px;
+      box-shadow: 0 20px 30px -10px #021008;
+      z-index: 999;
+      font-size: 1rem;
+      line-height: 1.6;
+      border-left: 6px solid var(--accent);
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.3s ease, transform 0.3s ease;
+      pointer-events: none;
+      backdrop-filter: blur(8px);
+      background: rgba(7, 44, 33, 0.95);
+    }
+    .popup-quote.show {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: none;
+    }
+    .popup-quote i {
+      color: var(--accent);
+      margin-right: 8px;
+    }
+    .popup-quote .ar {
+      display: block;
+      margin-top: 0.6rem;
+      font-size: 1.1rem;
+      opacity: 0.9;
+      border-top: 1px dashed var(--accent-soft);
+      padding-top: 0.6rem;
+    }
+
+    /* mobile */
+    @media screen and (max-width: 820px) {
+      .menu-toggle { display: block; }
+      .nav-links {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: rgba(255,255,255,0.97);
+        backdrop-filter: blur(16px);
+        flex-direction: column;
+        padding: 1.8rem;
+        clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+        opacity: 0;
+        pointer-events: none;
+        transition: 0.3s;
+      }
+      .nav-links.show {
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+        opacity: 1;
+        pointer-events: all;
+      }
+      .whatsapp-float { width: 55px; height: 55px; font-size: 30px; bottom: 20px; }
+      .popup-quote { max-width: 260px; right: 15px; bottom: 90px; }
+    }
+  </style>
+</head>
+<body>
+  <!-- FLOATING WHATSAPP BUTTON -->
+  <a href="https://wa.me/2349131449706?text=Assalamu%20alaikum!%20I'm%20interested%20in%20Shatibiy%20Institute." 
+     class="whatsapp-float" 
+     target="_blank" 
+     title="Chat with us on WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+
+  <!-- POPUP QUOTE CONTAINER (will be filled by js) -->
+  <div id="popupQuote" class="popup-quote"></div>
+
+  <header>
+    <nav class="navbar">
+      <div class="nav-container">
+        <div class="logo-area">
+          <img src="./logo.png" alt="Shatibiy Institute" style="width: 120px; height: auto;">
+        </div>
+        <button class="menu-toggle" id="menuToggle"><i class="fas fa-bars"></i> Menu</button>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="#home"><i class="fas fa-home"></i> Home</a></li>
+          <li><a href="#about"><i class="fas fa-mosque"></i> About</a></li>
+          <li><a href="#programs"><i class="fas fa-book-open"></i> Programs</a></li>
+          <li><a href="#testimonials"><i class="fas fa-star"></i> Testimonials</a></li>
+          <li><a href="#students"><i class="fas fa-users"></i> Students</a></li>
+          <li><a href="#tutor"><i class="fas fa-chalkboard-teacher"></i> Tutor</a></li>
+          <li><a href="#faq"><i class="fas fa-question-circle"></i> FAQ</a></li>
+          <li><a href="#contact"><i class="fas fa-phone-alt"></i> Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <main class="container">
+    <!-- ========== HOME SECTION ========== -->
+    <section id="home" class="hero">
+      <div class="hero-content">
+        <h1>Learn Qur’an & Islam <br><span style="color: var(--accent);">with authenticity</span></h1>
+        <div class="highlight"><i class="fas fa-globe"></i> Online · Ijaza-based · Structured</div>
+        <p style="font-size:1.2rem; margin: 1rem 0;">Shatibiy Institute combines traditional Madrasah teachings with modern E‑learning — for every home, worldwide.</p>
+        <div class="hero-badge">
+          <span><i class="fas fa-check-circle" style="color:var(--accent);"></i> 10+ students</span>
+          <span><i class="fas fa-check-circle" style="color:var(--accent);"></i> Different countries</span>
+          <span><i class="fas fa-check-circle" style="color:var(--accent);"></i> Certified tutors</span>
+        </div>
+      </div>
+      <div class="hero-image">
+        <i class="fas fa-quran fa-4x"></i>
+        <p style="margin-top:1rem;">"Read in the name of your Lord"</p>
+      </div>
+    </section>
+
+    <!-- ========== ABOUT US (full version with all details) ========= -->
+    <section id="about" class="section-card">
+      <h2><i class="fas fa-leaf"></i> ABOUT US</h2>
+      <p style="font-size:1.2rem;"><strong>Shatibiy Institute of Qur’an & Islamic Studies</strong> is a dedicated Islamic E‑Learning institute committed to delivering authentic and structured Islamic education to students worldwide. We combine traditional Madrasah teachings with modern E‑Learning methods to make Qur’an and Islamic studies accessible, engaging, and effective for learners of all ages.</p>
+
+      <div style="display: flex; flex-wrap: wrap; gap: 2rem; margin: 2rem 0;">
+        <div style="flex:1;"><i class="fas fa-bullseye fa-2x" style="color:var(--accent);"></i><h3>🎯 OUR VISION</h3><p>To nurture a generation firmly connected to the Qur’an, grounded in authentic Islamic knowledge, and empowered to live according to Islamic principles in the modern world.</p></div>
+        <div style="flex:1;"><i class="fas fa-kaaba fa-2x" style="color:var(--accent);"></i><h3>🕋 OUR PURPOSE</h3><p>Our purpose is to provide accessible, structured, and spiritually enriching Islamic E‑Learning that reaches every home regardless of location.</p></div>
+      </div>
+
+      <!-- THE PROBLEM WE SOLVE -->
+      <div class="problem-solve">
+        <h3><i class="fas fa-exclamation-triangle" style="color:var(--accent);"></i> 🔍 THE PROBLEM WE SOLVE</h3>
+        <p>Many families struggle to access reliable Islamic education due to:</p>
+        <ul style="columns:2; list-style: none; margin-top:1rem;">
+          <li><i class="fas fa-times-circle" style="color:#b13e3e;"></i> Limited qualified teachers</li>
+          <li><i class="fas fa-times-circle" style="color:#b13e3e;"></i> Busy lifestyles</li>
+          <li><i class="fas fa-times-circle" style="color:#b13e3e;"></i> Lack of structured curriculum</li>
+          <li><i class="fas fa-times-circle" style="color:#b13e3e;"></i> Distance from traditional Madrasah</li>
+        </ul>
+        <p class="mt-2">Through our organized E‑Learning system, we bridge that gap with clarity, discipline, and sincerity.</p>
+      </div>
+
+      <!-- WHAT MAKES US DIFFERENT -->
+      <div class="different-box">
+        <h3><i class="fas fa-gem"></i> ⭐ WHAT MAKES US DIFFERENT</h3>
+        <div class="grid-2">
+          <span><i class="fas fa-check" style="color:var(--primary);"></i> Structured E‑Learning curriculum covering Qur’an and full Islamic studies</span>
+          <span><i class="fas fa-check" style="color:var(--primary);"></i> Balanced focus on traditional knowledge and modern teaching methods</span>
+          <span><i class="fas fa-check" style="color:var(--primary);"></i> Personalized attention to every student</span>
+          <span><i class="fas fa-check" style="color:var(--primary);"></i> Flexible schedules for learners of all ages</span>
+          <span><i class="fas fa-check" style="color:var(--primary);"></i> Accessible from anywhere in the world</span>
+        </div>
+      </div>
+
+      <!-- CORE VALUES -->
+      <div style="margin: 2rem 0;">
+        <h3>🌿 CORE VALUES</h3>
+        <div style="display:flex; flex-wrap:wrap; gap:0.8rem;">
+          <span class="platform-badge" style="background:var(--accent-soft);">Authenticity</span>
+          <span class="platform-badge" style="background:var(--accent-soft);">Discipline</span>
+          <span class="platform-badge" style="background:var(--accent-soft);">Sincerity</span>
+          <span class="platform-badge" style="background:var(--accent-soft);">Excellence</span>
+          <span class="platform-badge" style="background:var(--accent-soft);">Respect</span>
+        </div>
+      </div>
+
+      <div class="founder-message" style="background:#e9e1d4; border-radius:28px; padding:1.8rem;">
+        <i class="fas fa-quote-right fa-2x" style="color:var(--accent); opacity:0.4;"></i>
+        <h3>🕊 FOUNDER’S MESSAGE</h3>
+        <p>“Our mission is to revive authentic Islamic knowledge through structured and accessible E‑Learning, nurturing students who live by the Qur’an. At Shatibiy Institute, every student is guided with care, discipline, and love for knowledge.”<br>— <strong>Shatibiy</strong></p>
+      </div>
+    </section>
+
+    <!-- ========== PROGRAMS ========= -->
+    <section id="programs" class="section-card">
+      <h2><i class="fas fa-graduation-cap"></i> OUR PROGRAMS</h2>
+      <div class="grid-3" style="display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:1.5rem;">
+        <div class="program-card"><i class="fas fa-star-and-crescent fa-3x"></i><h4>Beginner</h4><p>Qur’an reading, Tajweed basics</p></div>
+        <div class="program-card"><i class="fas fa-book-quran fa-3x"></i><h4>Intermediate</h4><p>Tajweed rules, Islamic Studies foundation</p></div>
+        <div class="program-card"><i class="fas fa-scroll fa-3x"></i><h4>Advanced Studies</h4><p>Hifz, Tafsir, Hadith</p></div>
+        <div class="program-card"><i class="fas fa-language fa-3x"></i><h4>Arabic Track</h4><p>Reading, writing, comprehension</p></div>
+        <div class="program-card"><i class="fas fa-mosque fa-3x"></i><h4>Comprehensive</h4><p>Aqeedah, Fiqh, Seerah</p></div>
+        <div class="program-card"><i class="fas fa-clock fa-3x"></i><h4>Custom Schedule</h4><p>Classes fixed based on student schedule</p></div>
+        <div class="program-card"><i class="fas fa-calendar-check fa-3x"></i><h4>Practice Sessions</h4><p>Fixed days for Fiqh application & practical learning</p></div>
+        <div class="program-card"><i class="fas fa-question-circle fa-3x"></i><h4>Deen Q&A</h4><p>Ask questions & learn Islamic answers</p></div>
+      </div>
+    </section>
+
+    <!-- ========== TESTIMONIALS ========= -->
+    <section id="testimonials" class="section-card">
+      <h2><i class="fas fa-comments"></i> TESTIMONIALS</h2>
+      <div class="grid-3" style="display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:1.5rem;">
+        <div class="testimonial-card"><i class="fas fa-quote-left fa-2x"></i><p>“Shatibiy Institute transformed my relationship with the Qur’an. The teachers are patient and truly care.”</p><div class="stars">★★★★★</div><span>— Aisha B., UK</span></div>
+        <div class="testimonial-card"><i class="fas fa-quote-left fa-2x"></i><p>“My son’s Tajweed improved dramatically in just 3 months.”</p><div class="stars">★★★★★</div><span>— Ahmed El-Masri, Canada</span></div>
+        <div class="testimonial-card"><i class="fas fa-quote-left fa-2x"></i><p>"Excellent teaching methodology! The structured approach has helped my daughter grasp Islamic concepts easily."</p><div class="stars">★★★★★</div><span>— Amina A., UAE</span></div>
+        <div class="testimonial-card"><i class="fas fa-quote-left fa-2x"></i><p>"The Hifz program is comprehensive and well-organized. Highly recommended for serious learners."</p><div class="stars">★★★★★</div><span>— Hassan M., Saudi Arabia</span></div>
+        <div class="testimonial-card"><i class="fas fa-quote-left fa-2x"></i><p>"The Arabic track opened doors for me to understand Qur'an in its original language. Truly transformative."</p><div class="stars">★★★★★</div><span>— Karim S., France</span></div>
+        <div class="testimonial-card"><i class="fas fa-quote-left fa-2x"></i><p>“As a working mom, the flexible timing helped me start memorization.”</p><div class="stars">★★★★☆</div><span>— Fatima Z., Malaysia</span></div>
+        <div class="testimonial-card"><i class="fas fa-quote-left fa-2x"></i><p>“The intermediate program gave me a strong foundation in Fiqh.”</p><div class="stars">★★★★★</div><span>— Yusuf Idris, Nigeria</span></div>
+        <div class="testimonial-card"><i class="fas fa-quote-left fa-2x"></i><p>“I love the Arabic track – now I can read classical texts.”</p><div class="stars">★★★★★</div><span>— Maryam K., US</span></div>
+      </div>
+    </section>
+
+    <!-- ========== STUDENTS (with pics) ========= -->
+    <section id="students" class="section-card">
+      <h2><i class="fas fa-user-graduate"></i> STUDENTS IN CLASS</h2>
+      <p>Our global community countries. Here are some of our learners:</p>
+      <div class="grid-student">
+        <div class="student-card"><img class="student-img" src="./image 12.jpeg" alt="Mr. Ahmed"><p>Mr. Ahmed</p></div>
+        <div class="student-card"><img class="student-img" src="./image 5.jpeg" alt="Ahmed"><p>Ahmed</p></div>
+        <div class="student-card"><img class="student-img" src="./image 6.jpeg" alt="Fatima"><p>Fatima</p></div>
+        <div class="student-card"><img class="student-img" src="./image 7.jpeg" alt="Aliyah"><p>Aliyah</p></div>
+        <div class="student-card"><img class="student-img" src="./image 8.jpeg" alt="Hikmat"><p>Hikmat</p></div>
+        <div class="student-card"><img class="student-img" src="./image 9.jpeg" alt="Amira"><p>Amira</p></div>
+        <div class="student-card"><img class="student-img" src="./image 10.jpeg" alt="Yasmin"><p>Yasmin</p></div>
+        <div class="student-card"><img class="student-img" src="./image 13.jpeg" alt="Mrs. Fatima"><p>Mrs. Fatima</p></div>
+      </div>
+      <div style="display:flex; flex-wrap:wrap; gap:1rem;">
+        <span class="platform-badge"><i class="fab fa-zoom"></i> Zoom</span>
+        <span class="platform-badge"><i class="fab fa-google"></i> Google Meet</span>
+        <span class="platform-badge"><i class="fas fa-mail-bulk"></i> Telegram</span>
+      </div>
+    </section>
+
+    <!-- ========== TUTOR PAGE ========= -->
+    <section id="tutor" class="section-card">
+      <h2><i class="fas fa-chalkboard-teacher"></i> TUTOR</h2>
+      <div style="display:flex; flex-wrap:wrap; gap:2rem; align-items:center;">
+        <div style="width:150px; height:150px; background:var(--primary); border-radius:50%; display:flex; align-items:center; justify-content:center; color:white; font-size:4rem;"><img src="./logo.png" alt="Tutor" style="width:100%; height:100%; border-radius:50%; object-fit:cover;"></div>
+        <div style="flex:1;">
+          <h3>Ustadh Uthman</h3>
+          <p><i>“I have dedicated the last 18 years to Qur’an sciences and Islamic pedagogy. Every student is an Amanah — we teach with compassion and structure.”</i></p>
+          <div style="display:flex; flex-wrap:wrap; gap:0.5rem; margin:1rem 0;">
+            <span style="background:var(--primary); color:white; padding:0.3rem 1.2rem; border-radius:40px;"><i class="fas fa-certificate"></i> Ijaza Hafs </span>
+            <span style="background:var(--primary); color:white; padding:0.3rem 1.2rem; border-radius:40px;"><i class="fas fa-certificate"></i>Certificate of Teaching </span>
+          </div>
+          <a href="./image 1.jpeg" class="pdf-badge" data-lightbox="tutor"><i class="fas fa-image"></i> View Certificates </a>
+          <a href="./image 2.jpeg" class="pdf-badge" data-lightbox="tutor"><i class="fas fa-image"></i> View Certificates </a>
+          <a href="./image 3.jpeg" class="pdf-badge" data-lightbox="tutor"><i class="fas fa-image"></i> View Certificates </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== FAQ SECTION (new, with your 6 questions) ========= -->
+    <section id="faq" class="section-card">
+      <h2><i class="fas fa-question-circle"></i> FREQUENTLY ASKED QUESTIONS</h2>
+      <div class="faq-grid">
+        <!-- 1 -->
+        <div class="faq-item">
+          <div class="faq-question"><i class="fas fa-graduation-cap"></i> What courses do you offer?</div>
+          <div class="faq-answer">
+            We offer a complete range of programs for all ages:
+            <ul>
+              <li><i class="fas fa-check-circle"></i> Qur’an Reading & Tajweed</li>
+              <li><i class="fas fa-check-circle"></i> Hifz (memorization) Program</li>
+              <li><i class="fas fa-check-circle"></i> Arabic Language Track</li>
+              <li><i class="fas fa-check-circle"></i> Comprehensive Islamic Studies (Fiqh, Aqeedah, Seerah)</li>
+            </ul>
+            Each course is structured into Beginner, Intermediate, and Advanced levels to suit your child’s learning pace.
+          </div>
+        </div>
+        <!-- 2 -->
+        <div class="faq-item">
+          <div class="faq-question"><i class="fas fa-user-plus"></i> How can my child enroll?</div>
+          <div class="faq-answer">
+            Enrollment is simple! You can register your child through:
+            <ul>
+              <li><i class="fab fa-whatsapp"></i> WhatsApp: direct message us to start</li>
+              <li><i class="fas fa-envelope"></i> Email: send us your child’s details</li>
+            </ul>
+            Once registered, we will guide you on class schedules and materials.
+          </div>
+        </div>
+        <!-- 3 -->
+        <div class="faq-item">
+          <div class="faq-question"><i class="fas fa-user-tie"></i> Who is the tutor / founder?</div>
+          <div class="faq-answer">
+            The tutor and founder is <strong>Adeleke Uthman (Shatibiy)</strong>, a certified teacher in Qur’an, Tajweed, and selected Arabic studies. He has completed memorization programs, teaching certificates, and studied extensively in traditional Madrasah curricula. Students benefit from his personal guidance and dedication.
+          </div>
+        </div>
+        <!-- 4 -->
+        <div class="faq-item">
+          <div class="faq-question"><i class="fas fa-quran"></i> Do you teach different Riwayat of the Qur’an?</div>
+          <div class="faq-answer">
+            Yes! We primarily teach <strong>Hafs ‘an ‘Asim</strong>, the most common Riwayah, and also introduce <strong>Warsh ‘an Nafi‘</strong> for advanced learners. All Riwayat are authentic, and our courses ensure proper pronunciation, correct recitation, and deep understanding.
+          </div>
+        </div>
+        <!-- 5 -->
+        <div class="faq-item">
+          <div class="faq-question"><i class="fas fa-clock"></i> How long does it take to learn or memorize the Qur’an?</div>
+          <div class="faq-answer">
+            The duration depends on your child’s age, dedication, and selected program. With consistent attendance, structured lessons, and personal guidance, students gradually master reading, Tajweed, and memorization. We provide regular feedback and encouragement to ensure steady progress.
+          </div>
+        </div>
+        <!-- 6 -->
+        <div class="faq-item">
+          <div class="faq-question"><i class="fas fa-book-open"></i> What is a Riwayat?</div>
+          <div class="faq-answer">
+            A Riwayat is a transmission or narration of the Qur’an from the Prophet ﷺ through chains of teachers. Each Riwayat may have small differences in pronunciation or recitation style, but the meaning of the Qur’an remains the same. Learning Riwayat ensures correct and authentic recitation for students.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== CONTACT US ========= -->
+    <section id="contact" class="section-card">
+      <h2><i class="fas fa-phone-alt"></i> CONTACT US</h2>
+      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:2rem;">
+        <div>
+          <div class="contact-item"><i class="fas fa-map-marker-alt"></i> Online </div>
+          <div class="contact-item"><i class="fab fa-whatsapp"></i> +234 913 144 9706</div>
+          <div class="contact-item"><i class="fas fa-envelope"></i> adelekeuthmanalabi@gmail.com</div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div style="display:flex; flex-wrap:wrap; justify-content:space-between;">
+      <span>© 2026 Shatibiy Institute — authentic e‑learning for all</span>
+      <span><i class="fab fa-facebook"></i> <i class="fab fa-instagram"></i> <i class="fab fa-youtube"></i></span>
+    </div>
+  </footer>
+
+  <script>
+    (function(){
+      // ---------- MENU TOGGLE & ACTIVE LINK ----------
+      const menuToggle = document.getElementById('menuToggle');
+      const navLinks = document.getElementById('navLinks');
+      menuToggle?.addEventListener('click', (e)=>{
+        e.stopPropagation();
+        navLinks.classList.toggle('show');
+      });
+
+      document.querySelectorAll('.nav-links a').forEach(link=>{
+        link.addEventListener('click', (e)=>{
+          navLinks.classList.remove('show');
+          const href = link.getAttribute('href');
+          if(href?.startsWith('#')){
+            e.preventDefault();
+            const target = document.getElementById(href.substring(1));
+            if(target) window.scrollTo({ top: target.offsetTop - 70, behavior: 'smooth' });
+          }
+        });
+      });
+
+      const sections = document.querySelectorAll('section[id]');
+      window.addEventListener('scroll', ()=>{
+        let scrollY = window.scrollY + 80;
+        sections.forEach(sec=>{
+          const top = sec.offsetTop - 80;
+          const bottom = top + sec.offsetHeight;
+          const id = sec.getAttribute('id');
+          const linkItem = document.querySelector(`.nav-links li a[href="#${id}"]`)?.parentElement;
+          if(linkItem){
+            if(scrollY >= top && scrollY < bottom){
+              document.querySelectorAll('.nav-links li').forEach(li=>li.classList.remove('active'));
+              linkItem.classList.add('active');
+            }
+          }
+        });
+      });
+
+      // ---------- WELCOMING POPUP MESSAGES (every 50 seconds) ----------
+      const quotes = [
+        {
+          en: "Knowledge lights the path to success. Keep learning every day!",
+          ar: "العلم نور يضيء طريق النجاح. استمر في التعلم كل يوم!"
+        },
+        {
+          en: "Every lesson you learn makes you stronger and wiser.",
+          ar: "كل درس تتعلمه يجعلك أقوى وأكثر حكمة."
+        },
+        {
+          en: "Seeking knowledge is a noble act. Every effort counts!",
+          ar: "طلب العلم عبادة عظيمة. كل جهد يحسب!"
+        },
+        {
+          en: "Knowledge gives you wings to achieve great things.",
+          ar: "العلم يمنحك أجنحة لتحقيق الأشياء العظيمة."
+        },
+        {
+          en: "Learning never ends. Every day is a chance to grow.",
+          ar: "التعلم لا ينتهي أبدًا. كل يوم فرصة للنمو."
+        }
+      ];
+
+      const popupEl = document.getElementById('popupQuote');
+      let quoteIndex = 0;
+
+      function showNextQuote() {
+        if (!popupEl) return;
+        const q = quotes[quoteIndex % quotes.length];
+        popupEl.innerHTML = `<i class="fas fa-lightbulb"></i> ${q.en} <span class="ar">${q.ar}</span>`;
+        popupEl.classList.add('show');
+
+        // hide after 8 seconds
+        setTimeout(() => {
+          popupEl.classList.remove('show');
+        }, 8000);
+
+        quoteIndex++;
+      }
+
+      // show first quote after 5 seconds, then every 50 seconds
+      setTimeout(showNextQuote, 5000);
+      setInterval(showNextQuote, 50000);
+    })();
+  </script>
+</body>
+</html>
