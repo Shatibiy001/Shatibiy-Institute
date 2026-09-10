@@ -672,6 +672,195 @@
     }
     .program-enroll:hover { background: var(--forest-mid); }
 
+    .bundle-panel {
+      background: linear-gradient(135deg, rgba(11,59,47,0.96), rgba(21,92,68,0.94));
+      border-radius: var(--radius-xl);
+      padding: 2rem;
+      box-shadow: var(--shadow-lg);
+      border: 1px solid rgba(196,154,60,0.15);
+      margin-top: 2rem;
+    }
+    .bundle-head {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+      color: white;
+    }
+    .bundle-head h3 {
+      font-size: clamp(1.4rem, 3vw, 2rem);
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 700;
+    }
+    .bundle-head p {
+      font-size: 0.92rem;
+      color: rgba(255,255,255,0.75);
+      max-width: 540px;
+    }
+    .bundle-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+    }
+    .bundle-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: var(--radius-md);
+      padding: 1.4rem;
+      color: white;
+      transition: var(--transition);
+    }
+    .bundle-card:hover {
+      background: rgba(255,255,255,0.07);
+      transform: translateY(-4px);
+    }
+    .bundle-card-header {
+      color: var(--gold-light);
+      font-size: 0.78rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-weight: 700;
+      margin-bottom: 0.9rem;
+    }
+    .bundle-card h4 {
+      font-size: 1.3rem;
+      font-family: 'Cormorant Garamond', serif;
+      margin-bottom: 0.8rem;
+      color: white;
+    }
+    .bundle-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+      font-size: 0.88rem;
+      color: rgba(255,255,255,0.74);
+    }
+    .bundle-list li {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .bundle-list li::before {
+      content: '\f058';
+      font-family: 'Font Awesome 6 Free';
+      font-weight: 900;
+      color: var(--gold-light);
+      font-size: 0.72rem;
+    }
+    .bundle-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+    }
+    .bundle-tags span {
+      background: rgba(196,154,60,0.12);
+      border: 1px solid rgba(196,154,60,0.22);
+      border-radius: 999px;
+      padding: 0.35rem 0.7rem;
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: var(--gold-light);
+    }
+    .bundle-card a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      background: var(--gold);
+      color: var(--ink);
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.88rem;
+      padding: 0.8rem 1rem;
+      border-radius: 999px;
+      transition: var(--transition);
+    }
+    .bundle-card a:hover {
+      background: var(--gold-light);
+      transform: translateY(-2px);
+    }
+
+    .tutor-choice-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.2rem;
+      margin: 2rem 0;
+    }
+    .tutor-choice-card {
+      position: relative;
+      display: block;
+      cursor: pointer;
+      background: var(--white);
+      border: 1px solid rgba(196,154,60,0.14);
+      border-radius: var(--radius-lg);
+      padding: 1.5rem;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+    }
+    .tutor-choice-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+    }
+    .tutor-choice-card input {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      cursor: pointer;
+    }
+    .tutor-choice-avatar {
+      width: 76px;
+      height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      margin-bottom: 1rem;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.1rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, var(--forest), var(--forest-mid));
+      color: var(--gold-light);
+    }
+    .tutor-choice-card h4 {
+      font-size: 1.5rem;
+      font-family: 'Cormorant Garamond', serif;
+      color: var(--ink);
+      margin-bottom: 0.2rem;
+    }
+    .tutor-choice-card p {
+      color: var(--text-mid);
+      font-size: 0.9rem;
+      line-height: 1.6;
+      margin-bottom: 0.8rem;
+    }
+    .tutor-choice-tag {
+      display: inline-flex;
+      align-items: center;
+      background: var(--gold-pale);
+      color: var(--forest);
+      border-radius: 999px;
+      padding: 0.38rem 0.8rem;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .tutor-choice-card:has(input:checked) {
+      border-color: var(--forest);
+      box-shadow: 0 10px 24px -16px rgba(11,59,47,0.4);
+      background: linear-gradient(180deg, rgba(250,247,242,0.95), rgba(255,255,255,0.98));
+    }
+    .tutor-cta {
+      display: flex;
+      justify-content: center;
+      margin-top: 1rem;
+    }
+
     /* ═══════════════════════════════════════════
        TESTIMONIALS
     ═══════════════════════════════════════════ */
@@ -1313,7 +1502,7 @@
   <!-- WHATSAPP FLOAT -->
   <div class="wa-float">
     <div class="wa-bubble">👋 Assalamu alaikum! Chat with us.</div>
-    <a href="https://wa.me/2349131449706?text=Assalamu%20alaikum!%20I'm%20interested%20in%20Shatibiy%20Institute."
+    <a href="https://wa.me/17743734783?text=Assalamu%20alaikum!%20I'm%20interested%20in%20Shatibiy%20Institute."
        class="wa-btn" target="_blank" rel="noopener" aria-label="WhatsApp">
       <i class="fab fa-whatsapp"></i>
     </a>
@@ -1367,16 +1556,16 @@
       <div class="hero-btns">
         <a href="#contact" class="btn-primary"><i class="fas fa-paper-plane"></i> Enroll Now</a>
         <a href="#programs" class="btn-secondary"><i class="fas fa-book-open"></i> View Programs</a>
-        <a href="https://wa.me/2349131449706" target="_blank" class="btn-wa"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+        <a href="https://wa.me/17743734783" target="_blank" class="btn-wa"><i class="fab fa-whatsapp"></i> WhatsApp</a>
       </div>
       <div class="hero-stats">
         <div class="stat">
-          <span class="stat-num">10+</span>
+          <span class="stat-num">100+</span>
           <span class="stat-label">Students</span>
         </div>
         <div class="stat-divider"></div>
         <div class="stat">
-          <span class="stat-num">5+</span>
+          <span class="stat-num">10+</span>
           <span class="stat-label">Years Exp.</span>
         </div>
         <div class="stat-divider"></div>
@@ -1467,6 +1656,22 @@
           </div>
         </div>
       </div>
+
+      <div class="card fade-up fade-up-delay-3" style="margin-top:2rem; background:linear-gradient(135deg, rgba(11,59,47,0.98), rgba(21,92,68,0.96)); color:white; border:none;">
+        <div class="card-body" style="padding:2.2rem;">
+          <div class="section-label" style="background:rgba(196,154,60,0.15); color:#f5e8c8; border-color:rgba(196,154,60,0.2);"><i class="fas fa-user-tie"></i> About the Founder</div>
+          <h3 style="font-family:'Cormorant Garamond', serif; font-size:clamp(1.8rem, 3vw, 2.6rem); margin-bottom:1rem; color:white;">Ustadh Adeleke Uthman (Shatibiy)</h3>
+          <p style="font-size:1.02rem; line-height:1.8; color:rgba(255,255,255,0.82); margin-bottom:1rem;">
+            Ustadh Adeleke Uthman (Shatibiy) is the Founder of <strong style="color:#f5e8c8;">Shatibiy Institute of Qur’an & Islamic Studies</strong>, established with a firm commitment to teaching the Qur’an and authentic Islamic knowledge based upon the Qur’an and Sunnah according to the understanding of the Salaf.
+          </p>
+          <p style="font-size:1.02rem; line-height:1.8; color:rgba(255,255,255,0.82); margin-bottom:1rem;">
+            His approach combines traditional Islamic learning with accessible modern teaching methods, with the aim of helping Muslims of all ages develop a sound understanding of their religion and a strong connection with the Qur’an.
+          </p>
+          <p style="font-size:1rem; line-height:1.8; color:#f5e8c8; margin:0; font-weight:700;">
+            Aqeedah: <em style="font-style:italic; color:white;">Upon the Qur’an and Sunnah, according to the understanding of the Salafus-Salih.</em>
+          </p>
+        </div>
+      </div>
     </section>
 
     <!-- ════════════════════════════════════
@@ -1474,83 +1679,145 @@
     ════════════════════════════════════ -->
     <section id="programs" class="section">
       <div class="section-head fade-up">
-        <div class="section-label"><i class="fas fa-graduation-cap"></i> Curriculum</div>
-        <h2 class="section-title">Our <em>Programs</em></h2>
-        <p class="section-subtitle">From your first Arabic letter to advanced Qur'anic sciences — structured pathways for every level.</p>
+        <div class="section-label"><i class="fas fa-graduation-cap"></i> Our Courses</div>
+        <h2 class="section-title">A structured path to <em>knowledge, fluency, and confidence</em></h2>
+        <p class="section-subtitle">We offer three core study areas designed to help students grow steadily in Qur'an, Arabic, and Islamic understanding — with guidance, accountability, and personal attention at every stage.</p>
       </div>
-      <div class="programs-grid">
+
+      <div class="bundle-panel fade-up">
+        <div class="bundle-head">
+          <h3>Our Custom Bundle</h3>
+          <p>Our Custom Bundle lets you hand-pick subjects from any category — Quran, Arabic, or Islamic sciences — and combine them into a curriculum designed around your goals. We can also take a student subject based on demand, so lessons are shaped around each learner's needs, pace, and schedule.</p>
+        </div>
+
+        <div class="bundle-grid">
+          <div class="bundle-card">
+            <div class="bundle-card-header">Quran Studies</div>
+            <h4>Quran + Tajweed</h4>
+            <ul class="bundle-list">
+              <li>Quran Reading</li>
+              <li>Recitation & Tajweed</li>
+              <li>Memorisation (Hifz)</li>
+            </ul>
+            <div class="bundle-tags">
+              <span>Fluency</span>
+              <span>Ijazah</span>
+            </div>
+            <a href="https://wa.me/17743734783?text=Assalamu%20alaikum!%20I%20would%20like%20to%20build%20a%20Quran%20Studies%20bundle." target="_blank">Build this bundle</a>
+          </div>
+
+          <div class="bundle-card">
+            <div class="bundle-card-header">Arabic Studies</div>
+            <h4>Arabic Language</h4>
+            <ul class="bundle-list">
+              <li>Arabic Foundation</li>
+              <li>Arabic Intermediate</li>
+              <li>Advanced Arabic</li>
+            </ul>
+            <div class="bundle-tags">
+              <span>Grammar</span>
+              <span>Fluency</span>
+            </div>
+            <a href="https://wa.me/17743734783?text=Assalamu%20alaikum!%20I%20want%20to%20build%20an%20Arabic%20Studies%20bundle." target="_blank">Build this bundle</a>
+          </div>
+
+          <div class="bundle-card">
+            <div class="bundle-card-header">Islamic Studies</div>
+            <h4>Faith & Practice</h4>
+            <ul class="bundle-list">
+              <li>Seerah</li>
+              <li>Tafsir</li>
+              <li>Aqeedah & Fiqh</li>
+            </ul>
+            <div class="bundle-tags">
+              <span>Character</span>
+              <span>Practice</span>
+            </div>
+            <a href="https://wa.me/17743734783?text=Assalamu%20alaikum!%20I%20want%20to%20build%20an%20Islamic%20Studies%20bundle." target="_blank">Build this bundle</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="programs-grid" style="margin-top:2rem;">
         <div class="program-card fade-up fade-up-delay-1">
           <div class="program-header bg-1">
-            <span class="program-header-icon">🌱</span>
-            <div class="program-level">Level 01</div>
-            <div class="program-name">Beginner</div>
+            <span class="program-header-icon">📖</span>
+            <div class="program-level">Course 01</div>
+            <div class="program-name">Quran Studies</div>
           </div>
           <div class="program-body">
             <ul class="program-subjects">
-              <li><i class="fas fa-circle-dot"></i> Iqra & Arabic Alphabet</li>
-              <li><i class="fas fa-circle-dot"></i> Basic Qur'an Recitation</li>
-              <li><i class="fas fa-circle-dot"></i> Introduction to Tajweed</li>
-              <li><i class="fas fa-circle-dot"></i> Foundational Duas & Prayers</li>
+              <li><i class="fas fa-circle-dot"></i> Quran Reading</li>
+              <li><i class="fas fa-circle-dot"></i> Recitation & Tajweed</li>
+              <li><i class="fas fa-circle-dot"></i> Memorisation (Hifz)</li>
+              <li><i class="fas fa-circle-dot"></i> Fluency & Ijazah</li>
             </ul>
-            <a href="https://wa.me/2349131449706?text=I'm%20interested%20in%20the%20Beginner%20program" class="program-enroll" target="_blank">
+            <a href="https://wa.me/17743734783?text=I'm%20interested%20in%20Quran%20Studies" class="program-enroll" target="_blank">
               <i class="fas fa-paper-plane"></i> Enroll
             </a>
           </div>
         </div>
+
         <div class="program-card fade-up fade-up-delay-2">
           <div class="program-header bg-2">
-            <span class="program-header-icon">📖</span>
-            <div class="program-level">Level 02</div>
-            <div class="program-name">Intermediate</div>
+            <span class="program-header-icon">🌍</span>
+            <div class="program-level">Course 02</div>
+            <div class="program-name">Arabic Studies</div>
           </div>
           <div class="program-body">
             <ul class="program-subjects">
-              <li><i class="fas fa-circle-dot"></i> Fluent Qur'an Recitation</li>
-              <li><i class="fas fa-circle-dot"></i> Applied Tajweed Rules</li>
-              <li><i class="fas fa-circle-dot"></i> Islamic Studies (Fiqh, Seerah)</li>
-              <li><i class="fas fa-circle-dot"></i> Memorisation of Juz Al-Ahqāf</li>
+              <li><i class="fas fa-circle-dot"></i> Arabic Foundation</li>
+              <li><i class="fas fa-circle-dot"></i> Arabic Intermediate</li>
+              <li><i class="fas fa-circle-dot"></i> Advanced Arabic</li>
+              <li><i class="fas fa-circle-dot"></i> Qur'anic Arabic & Grammar</li>
             </ul>
-            <a href="https://wa.me/2349131449706?text=I'm%20interested%20in%20the%20Intermediate%20program" class="program-enroll" target="_blank">
+            <a href="https://wa.me/17743734783?text=I'm%20interested%20in%20Arabic%20Studies" class="program-enroll" target="_blank">
               <i class="fas fa-paper-plane"></i> Enroll
             </a>
           </div>
         </div>
+
         <div class="program-card fade-up fade-up-delay-3">
           <div class="program-header bg-3">
-            <span class="program-header-icon">🏆</span>
-            <div class="program-level">Level 03</div>
-            <div class="program-name">Advanced / Hifz</div>
+            <span class="program-header-icon">🕌</span>
+            <div class="program-level">Course 03</div>
+            <div class="program-name">Islamic Studies</div>
           </div>
           <div class="program-body">
             <ul class="program-subjects">
-              <li><i class="fas fa-circle-dot"></i> Full Qur'an Memorisation</li>
-              <li><i class="fas fa-circle-dot"></i> Advanced Tajweed & Qira'at</li>
-              <li><i class="fas fa-circle-dot"></i> Ijaza Certification Track</li>
-              <li><i class="fas fa-circle-dot"></i> Qur'anic Sciences (Tafseer)</li>
+              <li><i class="fas fa-circle-dot"></i> Seerah</li>
+              <li><i class="fas fa-circle-dot"></i> Tafsir</li>
+              <li><i class="fas fa-circle-dot"></i> Aqeedah</li>
+              <li><i class="fas fa-circle-dot"></i> Fiqh</li>
             </ul>
-            <a href="https://wa.me/2349131449706?text=I'm%20interested%20in%20the%20Hifz%20program" class="program-enroll" target="_blank">
+            <a href="https://wa.me/17743734783?text=I'm%20interested%20in%20Islamic%20Studies" class="program-enroll" target="_blank">
               <i class="fas fa-paper-plane"></i> Enroll
             </a>
           </div>
         </div>
+
         <div class="program-card fade-up fade-up-delay-1">
           <div class="program-header bg-4">
-            <span class="program-header-icon">🌍</span>
-            <div class="program-level">Specialisation</div>
-            <div class="program-name">Arabic Language</div>
+            <span class="program-header-icon">🎓</span>
+            <div class="program-level">Special Program</div>
+            <div class="program-name">Thanawiyah Program</div>
           </div>
           <div class="program-body">
             <ul class="program-subjects">
-              <li><i class="fas fa-circle-dot"></i> Modern Standard Arabic</li>
-              <li><i class="fas fa-circle-dot"></i> Classical Arabic (Fus-ha)</li>
-              <li><i class="fas fa-circle-dot"></i> Arabic Grammar (Nahw & Sarf)</li>
-              <li><i class="fas fa-circle-dot"></i> Qur'anic Arabic Vocabulary</li>
+              <li><i class="fas fa-circle-dot"></i> Structured Islamic curriculum</li>
+              <li><i class="fas fa-circle-dot"></i> Advanced studies & revision</li>
+              <li><i class="fas fa-circle-dot"></i> Academic support & assessment</li>
+              <li><i class="fas fa-circle-dot"></i> Ideal for committed learners</li>
             </ul>
-            <a href="https://wa.me/2349131449706?text=I'm%20interested%20in%20the%20Arabic%20program" class="program-enroll" target="_blank">
+            <a href="https://wa.me/17743734783?text=I'm%20interested%20in%20the%20Thanawiyah%20Program" class="program-enroll" target="_blank">
               <i class="fas fa-paper-plane"></i> Enroll
             </a>
           </div>
         </div>
+      </div>
+
+      <div class="section-head fade-up" style="margin-top:2.5rem; margin-bottom:0;">
+        <p class="section-subtitle" style="max-width:760px; font-weight:600; color:var(--forest);">We do far more than teach — we guide, mentor, and support learners through every step of their journey, so you can learn with confidence and never regret taking action.</p>
       </div>
     </section>
 
@@ -1560,7 +1827,7 @@
     <section id="testimonials" class="section">
       <div class="section-head fade-up">
         <div class="section-label"><i class="fas fa-star"></i> Testimonials</div>
-        <h2 class="section-title">What our <em>students say</em></h2>
+        <h2 class="section-title">What parents and learners say <em>about us</em></h2>
       </div>
       <div class="testimonials-track">
         <div class="testimonial t-featured fade-up fade-up-delay-1">
@@ -1574,17 +1841,19 @@
             </div>
           </div>
         </div>
+
         <div class="testimonial fade-up fade-up-delay-2">
           <div class="stars">★★★★★</div>
-          <p class="testimonial-quote">"My son struggled to connect with learning before. Ustadh Uthman's patience and clear teaching method made all the difference. He now loves his Tajweed classes."</p>
+          <p class="testimonial-quote">"My son was struggling with consistency, but the teacher's patience and structure changed everything. He is more confident, more focused, and actually enjoys his lessons now."</p>
           <div class="testimonial-author">
-            <div class="author-avatar">A</div>
+            <div class="author-avatar">H</div>
             <div>
-              <div class="author-name">Ahmed K.</div>
-              <div class="author-role">Parent · UK</div>
+              <div class="author-name">Hassan R.</div>
+              <div class="author-role">Parent · London, UK</div>
             </div>
           </div>
         </div>
+
         <div class="testimonial fade-up fade-up-delay-3">
           <div class="stars">★★★★★</div>
           <p class="testimonial-quote">"As a working mother, the flexibility is everything. I can schedule around my life while still giving my children authentic Islamic education. Alhamdulillah!"</p>
@@ -1592,10 +1861,11 @@
             <div class="author-avatar">F</div>
             <div>
               <div class="author-name">Fatima O.</div>
-              <div class="author-role">Student · Canada</div>
+              <div class="author-role">Student · Toronto, Canada</div>
             </div>
           </div>
         </div>
+
         <div class="testimonial fade-up fade-up-delay-1">
           <div class="stars">★★★★★</div>
           <p class="testimonial-quote">"The structured curriculum is incredible — I knew exactly what I was learning and where I was going. I completed my Juz Amma memorisation in 4 months!"</p>
@@ -1604,6 +1874,30 @@
             <div>
               <div class="author-name">Yusuf A.</div>
               <div class="author-role">Student · USA</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial fade-up fade-up-delay-2">
+          <div class="stars">★★★★★</div>
+          <p class="testimonial-quote">"My daughter used to feel shy and uncertain in class, but the supportive environment made her more comfortable. Her Tajweed and confidence both improved significantly."</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">N</div>
+            <div>
+              <div class="author-name">Naima S.</div>
+              <div class="author-role">Parent · Johannesburg, South Africa</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial fade-up fade-up-delay-3">
+          <div class="stars">★★★★★</div>
+          <p class="testimonial-quote">"I am an adult learner and I needed a class that fits around my work. The schedule was flexible, the teaching was clear, and my understanding of Arabic and Islamic basics improved quickly."</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">M</div>
+            <div>
+              <div class="author-name">Muhammad T.</div>
+              <div class="author-role">Adult Learner · Abu Dhabi, UAE</div>
             </div>
           </div>
         </div>
@@ -1637,43 +1931,29 @@
     <section id="tutor" class="section">
       <div class="section-head fade-up">
         <div class="section-label"><i class="fas fa-chalkboard-teacher"></i> Your Teacher</div>
-        <h2 class="section-title">Learn from the <em>best</em></h2>
+        <h2 class="section-title">Choose Your <em>Tutor</em></h2>
+        <p class="section-subtitle">Students can select the tutor they feel most comfortable with for their assessment and ongoing lessons.</p>
       </div>
-      <div class="tutor-layout fade-up">
-        <div class="tutor-card-visual">
-          <div class="tutor-avatar">
-            <img src="./logo.png" alt="Ustadh Uthman" onerror="this.style.display='none'; this.parentNode.innerHTML='U';">
-          </div>
-          <div class="tutor-name">Ustadh Uthman</div>
-          <div class="tutor-title">Adeleke Uthman (Shatibiy)</div>
-          <div class="tutor-exp">
-            <span class="tutor-exp-num">5+</span>
-            <span class="tutor-exp-label">Years in Qur'anic Sciences</span>
-          </div>
-        </div>
-        <div class="tutor-info">
-          <p class="tutor-bio">
-            Ustadh Adeleke Uthman — known as Shatibiy — has dedicated over 5+ years to the science of the Qur'an. With formal Ijaza certification and a deep commitment to traditional pedagogy, he has taught students across multiple countries through a blend of classical methods and modern E-Learning tools.
-          </p>
-          <p class="tutor-bio">
-            <em>"Teaching the Qur'an is the greatest honour. Every student who learns becomes a chain of light connecting back to the Prophet ﷺ himself."</em>
-          </p>
-          <ul class="cred-list">
-            <li class="cred-item"><i class="fas fa-award"></i> Certified Ijaza in Qur'anic Recitation</li>
-            <li class="cred-item"><i class="fas fa-book-open"></i> Specialisation in Tajweed & Qira'at</li>
-            <li class="cred-item"><i class="fas fa-mosque"></i> Trained in Traditional Madrasah Sciences</li>
-            <li class="cred-item"><i class="fas fa-globe"></i> Students in 5+ Countries</li>
-            <li class="cred-item"><i class="fas fa-star"></i> 5+ Years of Active Teaching</li>
-          </ul>
-          <div>
-            <a href="./image 1.jpeg" class="btn-primary" target="_blank"><i class="fas fa-image"></i> View Certificates</a>
-            <a href="./image 2.jpeg" class="btn-primary" target="_blank"><i class="fas fa-image"></i> View Certificates</a>
-            <a href="./image 3.jpeg" class="btn-primary" target="_blank"><i class="fas fa-image"></i> View Certificates</a>
-          </div>
-        </div>
-      </div>
-    </section>
 
+      <div class="tutor-choice-grid fade-up">
+        <label class="tutor-choice-card">
+          <input type="radio" name="tutorPreference" value="Male Tutor" checked>
+          <div class="tutor-choice-avatar">M</div>
+          <h4>Male Tutor</h4>
+          <p>Focused on structured Qur'an, Tajweed, and Islamic studies guidance with a calm and disciplined teaching style.</p>
+          <span class="tutor-choice-tag">Assessment</span>
+        </label>
+
+        <label class="tutor-choice-card">
+          <input type="radio" name="tutorPreference" value="Female Tutor">
+          <div class="tutor-choice-avatar">F</div>
+          <h4>Female Tutor</h4>
+          <p>Warm, patient, and encouraging support for Qur'an learning, memorisation, and confidence-building.</p>
+          <span class="tutor-choice-tag">Assessment</span>
+        </label>
+      </div>
+
+     
     <!-- ════════════════════════════════════
          FAQ
     ════════════════════════════════════ -->
@@ -1699,7 +1979,7 @@
             <i class="fas fa-chevron-down chevron"></i>
           </button>
           <div class="faq-body">
-            <div class="faq-body-inner">Enrollment is simple — reach out via WhatsApp (+234 913 144 9706) or email (adelekeuthmanalabi@gmail.com). We'll schedule a free assessment to place you in the right program level.</div>
+            <div class="faq-body-inner">Enrollment is simple — reach out via WhatsApp (+1 774 373 4783) or email (shatibiyinstitute@gmail.com). We'll schedule a free assessment to place you in the right program level.</div>
           </div>
         </div>
         <div class="faq-item">
@@ -1822,7 +2102,7 @@
 
       <div class="charity-cta-box fade-up">
         <div class="charity-cta-text">"Together, we build a community rooted in knowledge, compassion, and dignity."</div>
-        <a href="https://wa.me/2349131449706?text=Assalamu%20alaikum!%20I%20want%20to%20support%20Shatibiy%20charity%20programs."
+        <a href="https://wa.me/17743734783?text=Assalamu%20alaikum!%20I%20want%20to%20support%20Shatibiy%20charity%20programs."
            class="btn-wa" target="_blank">
           <i class="fab fa-whatsapp"></i> Support via WhatsApp
         </a>
@@ -1836,16 +2116,16 @@
       <div class="section-head fade-up">
         <div class="section-label"><i class="fas fa-paper-plane"></i> Contact</div>
         <h2 class="section-title">Get in <em>touch</em></h2>
-        <p class="section-subtitle">Ready to start your journey? Reach out — we reply within 24 hours, in shaa Allah.</p>
+        <p class="section-subtitle">Ready to start your journey? Reach out — we reply within some minutes, in shaa Allah.</p>
       </div>
       <div class="contact-layout fade-up">
         <div>
           <div class="contact-info">
-            <a href="https://wa.me/2349131449706" class="contact-item" target="_blank">
-              <i class="fab fa-whatsapp"></i> +234 913 144 9706 (WhatsApp)
+            <a href="https://wa.me/17743734783" class="contact-item" target="_blank">
+              <i class="fab fa-whatsapp"></i> +1 774 373 4783 (WhatsApp)
             </a>
-            <a href="mailto:adelekeuthmanalabi@gmail.com" class="contact-item">
-              <i class="fas fa-envelope"></i> adelekeuthmanalabi@gmail.com
+            <a href="mailto:shatibiyinstitute@gmail.com" class="contact-item">
+              <i class="fas fa-envelope"></i> shatibiyinstitute@gmail.com
             </a>
             <div class="contact-item">
               <i class="fas fa-globe"></i> Online — Worldwide Reach
@@ -1876,7 +2156,16 @@
               <option>Intermediate</option>
               <option>Advanced / Hifz</option>
               <option>Arabic Language</option>
+              <option>Custom Bundle</option>
               <option>Charity Support</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="tutorPreference">Tutor Preference</label>
+            <select class="form-control" id="tutorPreference" name="tutorPreference">
+              <option value="Male Tutor">Male Tutor</option>
+              <option value="Female Tutor">Female Tutor</option>
+              <option value="No Preference">No Preference</option>
             </select>
           </div>
           <div class="form-group">
@@ -1903,7 +2192,7 @@
         <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
         <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
         <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-        <a href="https://wa.me/2349131449706" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        <a href="https://wa.me/17743734783" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
       </div>
       <div class="footer-copy">Baraka Allahu feekum 🤲</div>
     </div>
@@ -2032,14 +2321,31 @@
     setTimeout(showToast, 4000);
     setInterval(showToast, 50000);
 
+    /* ─── TUTOR BOOKING SELECTION ─── */
+    const tutorBookingLink = document.getElementById('tutorBookingLink');
+    function updateTutorBookingLink() {
+      if (!tutorBookingLink) return;
+      const selected = document.querySelector('input[name="tutorPreference"]:checked')?.value || 'Male Tutor';
+      const tutorType = selected === 'Female Tutor' ? 'female' : 'male';
+      const label = selected === 'Female Tutor' ? 'Book a female tutor' : 'Book a male tutor';
+      const text = encodeURIComponent(`Assalamu alaikum! I would like to book a ${tutorType} tutor for my assessment.`);
+      tutorBookingLink.href = `https://wa.me/17743734783?text=${text}`;
+      tutorBookingLink.innerHTML = `<i class="fab fa-whatsapp"></i> ${label}`;
+    }
+    document.querySelectorAll('input[name="tutorPreference"]').forEach(radio => {
+      radio.addEventListener('change', updateTutorBookingLink);
+    });
+    updateTutorBookingLink();
+
     /* ─── CONTACT FORM (WhatsApp redirect) ─── */
     document.getElementById('contactForm').addEventListener('submit', function(e) {
       e.preventDefault();
       const name = document.getElementById('name').value;
       const program = document.getElementById('program').value;
+      const tutorPreference = document.getElementById('tutorPreference').value;
       const message = document.getElementById('message').value;
-      const text = encodeURIComponent(`Assalamu alaikum!\n\nName: ${name}\nProgram: ${program || 'Not specified'}\nMessage: ${message}`);
-      window.open(`https://wa.me/2349131449706?text=${text}`, '_blank');
+      const text = encodeURIComponent(`Assalamu alaikum!\n\nName: ${name}\nProgram: ${program || 'Not specified'}\nTutor Preference: ${tutorPreference}\nMessage: ${message}`);
+      window.open(`https://wa.me/17743734783?text=${text}`, '_blank');
     });
 
     window.addEventListener('scroll', handleScroll, { passive: true });
