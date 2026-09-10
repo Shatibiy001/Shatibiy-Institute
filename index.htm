@@ -513,6 +513,51 @@
     }
     .card-body { padding: 2rem; }
 
+    .video-showcase {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.5rem;
+    }
+    .video-card {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 1px solid rgba(196,154,60,0.12);
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.3s var(--ease-spring), box-shadow 0.3s var(--ease-smooth);
+    }
+    .video-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-lg);
+    }
+    .video-embed {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background: var(--forest);
+      border-bottom: 1px solid rgba(196,154,60,0.12);
+    }
+    .video-embed video {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      background: var(--forest);
+    }
+    .video-card-body {
+      padding: 1.5rem 1.5rem 1.8rem;
+    }
+    .video-card h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.7rem, 2.5vw, 2.3rem);
+      color: var(--ink);
+      margin-bottom: 0.7rem;
+    }
+    .video-card p {
+      font-size: 0.96rem;
+      line-height: 1.7;
+      color: var(--text-mid);
+    }
+
     /* ═══════════════════════════════════════════
        ABOUT
     ═══════════════════════════════════════════ */
@@ -1547,14 +1592,15 @@
     <div class="hero-left">
       <div class="hero-eyebrow">Online · Ijaza-Based · Structured</div>
       <h1 class="hero-title">
-        Learn <span class="gold">Qur'an</span><br>
-        & Islam <span class="italic">the authentic way</span>
+        Learn the <span class="gold">Qur'an</span>.<br>
+        Understand Your <span class="italic">Deen</span>.<br>
+        Build a Stronger <span class="gold">Muslim Home</span>.
       </h1>
       <p class="hero-body">
-        Shatibiy Institute combines traditional Madrasah scholarship with modern E-Learning — bringing certified Qur'anic education to every home, worldwide.
+        <strong>1-on-1 Qur'an &amp; Islamic Education for Children, Adults &amp; Families — Wherever You Are.</strong>
       </p>
       <div class="hero-btns">
-        <a href="#contact" class="btn-primary"><i class="fas fa-paper-plane"></i> Enroll Now</a>
+        <a href="#contact" class="btn-primary"><i class="fas fa-paper-plane"></i> BOOK YOUR FREE ASSESSMENT</a>
         <a href="#programs" class="btn-secondary"><i class="fas fa-book-open"></i> View Programs</a>
         <a href="https://wa.me/17743734783" target="_blank" class="btn-wa"><i class="fab fa-whatsapp"></i> WhatsApp</a>
       </div>
@@ -1670,6 +1716,38 @@
           <p style="font-size:1rem; line-height:1.8; color:#f5e8c8; margin:0; font-weight:700;">
             Aqeedah: <em style="font-style:italic; color:white;">Upon the Qur’an and Sunnah, according to the understanding of the Salafus-Salih.</em>
           </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════
+         VIDEO SHOWCASE
+    ════════════════════════════════════ -->
+    <section id="videos" class="section">
+      <div class="section-head fade-up">
+        <div class="section-label"><i class="fas fa-video"></i> Why Shatibiy</div>
+        <h2 class="section-title">A closer look at <em>our mission and impact</em></h2>
+      </div>
+
+      <div class="video-showcase">
+        <div class="video-card fade-up fade-up-delay-1">
+          <div class="video-embed">
+            <video src="video 1.mp4" controls preload="metadata" playsinline></video>
+          </div>
+          <div class="video-card-body">
+            <h3>Why Choose Shatibiy?</h3>
+            <p>See why families choose Shatibiy Institute for a caring, structured, and authentic approach to Qur'an and Islamic learning.</p>
+          </div>
+        </div>
+
+        <div class="video-card fade-up fade-up-delay-2">
+          <div class="video-embed">
+            <video src="video 2.mp4" controls preload="metadata" playsinline></video>
+          </div>
+          <div class="video-card-body">
+            <h3>Our Transformation</h3>
+            <p>Watch how our students and families experience meaningful change through consistent guidance, confidence, and spiritual growth.</p>
+          </div>
         </div>
       </div>
     </section>
